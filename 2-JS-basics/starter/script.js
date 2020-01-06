@@ -443,15 +443,244 @@ console.log(john.age);
 
 */
 
+/*
+
+var mark = {
+
+    name : 'Mark Docker',
+    height : 1.82,
+    weight : 75
+
+}
+
+var john = {
+
+    name : 'John Smith',
+    height : 1.95,
+    weight : 99
+
+}
+
+
+mark.calcBMI = function() {
+
+    mark.bmi = mark.weight / mark.height * mark.height;
+
+}
+
+john.calcBMI = function() {
+
+    john.bmi = john.weight / john.height * john.height;
+
+}
+
+
+mark.calcBMI();
+john.calcBMI();
+
+console.log(mark.bmi);
+console.log(john);
+
+
+if (mark.bmi < john.bmi) {
+
+    console.log('John has the highest BMI');
+
+} else if (mark.bmi === john.bmi) {
+
+    console.log('John and Mark have the same BMI');
+
+} else {
+
+    console.log('Mark has the highest BMI');
+
+}
+
+*/
+
+/*
+
+var john = {
+
+    fullname : 'John Smith',
+    height : 1.95,
+    weight : 99,
+    calcBMI : function() {
+
+        this.bmi = this.weight / (this.height * this.height);
+        return this.bmi;
+
+    }
+
+}
+
+var mark = {
+
+    name : 'Mark Docker',
+    height : 1.82,
+    weight : 75,
+    calcBMI : function() {
+
+        this.bmi = this.weight / (this.height * this.height);
+        return this.bmi;
+    }
+
+}
+
+john.calcBMI();
+mark.calcBMI();
+console.log(john, mark);
+
+*/
+
+
+/******************************************
+ * Loops and iteration
+ */
+
+/*
+var john = ['John', 'Smith', 1990, 'designer', false];
+
+for (var i = 0; i < john.length; i++){
+
+    
+    if (typeof john[i] !== 'string') continue;
+    
+
+    console.log(john[i])
+
+}
+
+for (var i = 0; i < john.length; i++) {
+
+    if (typeof john[i] !== 'string') break;
+    console.log(john[i]);
+
+}
 
 
 
+var i = 0;
+while(i < john.length) {
+
+    
+    console.log(john[i]);
+    i++;
+
+}
+
+console.log(john.length);
 
 
+var numbers = [0,1,2,3,4,5,6,7,8,9];
+
+for (var i = numbers.length - 1 ; i >= 0 ; i-- ){
+
+    console.log(i)
+
+}
+
+*/
+
+var johnBill = {
+
+    bills : [124, 48, 268, 180, 42],
+    calcTip : function() {
+
+        this.tips = [];   
+        for (var i = 0; i< this.bills.length ; i ++){
+
+            if (this.bills[i] < 50) {
+                var tip = 0.2 * this.bills[i];
+            } else if (this.bills[i] < 200) {
+                var tip = 0.15 * this.bills[i];
+            } else {
+                var tip = 0.10 * this.bills[i];
+            }
+
+            this.tips[i] = tip;
+
+        }
+
+    },
+
+    calcTotal : function() {
+
+        this.total = [];
+        for (var i = 0; i < this.tips.length; i++) {
+
+            this.total[i] = this.bills[i] + this.tips[i];
+
+        }
+
+    } 
+
+    
+}
 
 
+var markBill = {
+
+    bills : [77, 375, 110, 45],
+    calcTip : function() {
+
+        this.tips = [];   
+        for (var i = 0; i< this.bills.length ; i ++){
+
+            if (this.bills[i] < 100) {
+                var tip = 0.2 * this.bills[i];
+            } else if (this.bills[i] < 300) {
+                var tip = 0.10 * this.bills[i];
+            } else {
+                var tip = 0.25 * this.bills[i];
+            }
+
+            this.tips[i] = tip;
+
+        }
+
+        return this.tips;
 
 
+    },
+
+    calcTotal : function() {
+
+        this.total = [];
+        for (var i = 0; i < this.tips.length; i++) {
+
+            this.total[i] = this.bills[i] + this.tips[i];
+
+        }
+
+        return this.total;
+
+    }
+
+    
+}
+
+markBill.calcTip();
+markBill.calcTotal();
+johnBill.calcTip();
+johnBill.calcTotal();
+
+
+function calcAvgTip(tips) {
+
+    var avg = 0
+
+    for (var i = 0 ; i<tips.length ; i++){
+
+        avg += tips[i];
+    }
+
+    avg /= tips.length;
+    return avg;
+
+}
+
+console.log(calcAvgTip(markBill.tips), calcAvgTip(johnBill.tips));
 
 
 
