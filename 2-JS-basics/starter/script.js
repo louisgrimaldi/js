@@ -410,6 +410,8 @@ whatDoYouDo('anything', 'Neil');
 */
 
 // Initialise new array
+
+/*
 var names = ['John', 'Mark', 'Jane'];
 var years = new Array(1990, 1997, 1994)
 
@@ -421,6 +423,25 @@ console.log(names);
 names[1] = 'Ben'
 console.log(names)
 
+
+var john = {
+
+    firstName : 'John',
+    lastName  : 'Docker',
+    birthYear : 1990,
+    family    : ['louis', 'claire', 'carl', 'pf', 'isabel'],
+    calcAge   : function(){
+        this.age = 2020 - this.birthYear;
+    }
+
+}
+
+john.age = john.calcAge();
+
+console.log(john.calcAge());
+console.log(john.age);
+
+*/
 
 
 
